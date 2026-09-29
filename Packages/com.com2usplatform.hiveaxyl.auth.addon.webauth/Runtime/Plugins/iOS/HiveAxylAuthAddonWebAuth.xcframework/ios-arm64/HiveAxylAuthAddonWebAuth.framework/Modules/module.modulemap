@@ -1,0 +1,4 @@
+framework module HiveAxylAuthAddonWebAuth {
+  header "HiveAxylAuthAddonWebAuth-Swift.h"
+  requires objc
+}

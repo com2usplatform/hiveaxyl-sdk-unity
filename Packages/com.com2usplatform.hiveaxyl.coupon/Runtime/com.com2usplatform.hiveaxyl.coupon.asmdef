@@ -1,0 +1,16 @@
+{
+  "name": "Hive.Axyl.Coupon",
+  "rootNamespace": "Hive.Axyl.Coupon",
+  "references": [
+    "Hive.Axyl.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Hive.Axyl.Core",
+  "rootNamespace": "Hive.Axyl.Core",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": ["Hive.Axyl.Core.Internal.dll"],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

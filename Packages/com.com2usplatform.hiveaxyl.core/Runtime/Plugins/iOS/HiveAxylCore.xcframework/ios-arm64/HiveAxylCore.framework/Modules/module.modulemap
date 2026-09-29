@@ -1,0 +1,11 @@
+framework module HiveAxylCore {
+  umbrella header "HiveAxylCore.h"
+  export *
+
+  module * { export * }
+}
+
+module HiveAxylCore.Swift {
+  header "HiveAxylCore-Swift.h"
+  requires objc
+}

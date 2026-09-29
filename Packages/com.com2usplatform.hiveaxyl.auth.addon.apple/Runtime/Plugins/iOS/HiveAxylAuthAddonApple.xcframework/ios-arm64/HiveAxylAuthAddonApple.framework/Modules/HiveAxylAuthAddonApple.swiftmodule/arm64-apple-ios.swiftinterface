@@ -1,0 +1,103 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios17.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name HiveAxylAuthAddonApple
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AuthenticationServices
+import Foundation
+import HiveAxylCore
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers final public class AppleSignInServiceNativeAdapterDefault : HiveAxylAuthAddonApple.AppleSignInServiceNativeAdapter, @unchecked Swift.Sendable {
+  convenience public init()
+  final public func login(request: HiveAxylAuthAddonApple.AppleSignInServiceLoginRequest) -> HiveAxylAuthAddonApple.AppleSignInServiceLoginResult
+  @objc deinit
+}
+public protocol AppleSignInServiceNativeAdapter : AnyObject {
+  func login(request: HiveAxylAuthAddonApple.AppleSignInServiceLoginRequest) -> HiveAxylAuthAddonApple.AppleSignInServiceLoginResult
+  func onCancel(callbackId: Swift.Int)
+}
+extension HiveAxylAuthAddonApple.AppleSignInServiceNativeAdapter {
+  public func onCancel(callbackId: Swift.Int)
+}
+public struct AppleSignInServiceLoginRequest : Swift.Codable {
+  public var nonceHash: Swift.String
+  public var requestedScopes: [HiveAxylAuthAddonApple.RequestedScope]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AppleSignInServiceLoginResponse : Swift.Codable {
+  public var userIdentifier: Swift.String
+  public var identityToken: Swift.String
+  public var authorizationCode: Swift.String
+  public var email: Swift.String
+  public var userName: HiveAxylAuthAddonApple.AppleUserName
+  public var realUserStatus: HiveAxylAuthAddonApple.RealUserStatus
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AppleUserName : Swift.Codable {
+  public var givenName: Swift.String
+  public var familyName: Swift.String
+  public var middleName: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum AppleSignInServiceLoginResult {
+  case success(HiveAxylAuthAddonApple.AppleSignInServiceLoginResponse)
+  case userCanceled
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum RealUserStatus : Swift.Int, Swift.Codable {
+  case unspecified
+  case likelyReal
+  case unknown
+  case unsupported
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum RequestedScope : Swift.Int, Swift.Codable {
+  case unspecified
+  case email
+  case fullName
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class AppleSignInServicePlugin : ObjectiveC.NSObject, HiveAxylCore.AxylPlugin, @unchecked Swift.Sendable {
+  @objc public static let pluginName: Swift.String
+  public init(adapter: any HiveAxylAuthAddonApple.AppleSignInServiceNativeAdapter, queue: Dispatch.DispatchQueue = DispatchQueue(
+            label: "com.com2usplatform.hiveaxyl.apple_sign_in_service.plugin",
+            qos: .userInitiated
+        ))
+  @objc public static func register()
+  public static func register(adapter: any HiveAxylAuthAddonApple.AppleSignInServiceNativeAdapter)
+  @objc final public func callSync(method: Swift.String, payload: Swift.String) -> Swift.String
+  @objc final public func callAsync(method: Swift.String, payload: Swift.String, onComplete: @escaping @Sendable @convention(block) (Swift.String) -> Swift.Void)
+  @objc final public func cancel(callbackId: Swift.Int)
+  @objc deinit
+}
+@_cdecl("Hive_Axyl_AppleSignInService_Register")
+public func Hive_Axyl_AppleSignInService_Register()
+extension HiveAxylAuthAddonApple.RealUserStatus : Swift.Equatable {}
+extension HiveAxylAuthAddonApple.RealUserStatus : Swift.Hashable {}
+extension HiveAxylAuthAddonApple.RealUserStatus : Swift.RawRepresentable {}
+extension HiveAxylAuthAddonApple.RequestedScope : Swift.Equatable {}
+extension HiveAxylAuthAddonApple.RequestedScope : Swift.Hashable {}
+extension HiveAxylAuthAddonApple.RequestedScope : Swift.RawRepresentable {}

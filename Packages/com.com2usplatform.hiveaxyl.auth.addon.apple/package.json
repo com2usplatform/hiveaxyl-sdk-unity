@@ -1,0 +1,13 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.auth.addon.apple",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Auth Addon - Apple",
+  "description": "Apple Sign-In authentication addon for Hive Axyl SDK. Wraps ASAuthorizationAppleIDProvider / ASAuthorizationController to return raw ASAuthorizationAppleIDCredential fields on iOS 17.0+ and macOS 15.0+.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "auth", "addon", "apple", "sign-in"],
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0"
+  }
+}

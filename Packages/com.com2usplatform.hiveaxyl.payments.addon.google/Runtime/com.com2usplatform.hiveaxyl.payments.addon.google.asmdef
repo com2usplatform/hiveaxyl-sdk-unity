@@ -1,0 +1,16 @@
+{
+  "name": "Hive.Axyl.Payments.Addon.Google",
+  "rootNamespace": "Hive.Axyl.Payments.Addon.Google",
+  "references": [
+    "Hive.Axyl.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

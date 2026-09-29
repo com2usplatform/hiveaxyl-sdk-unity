@@ -1,0 +1,13 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.push.addon.apns",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Push Addon - APNs",
+  "description": "iOS/macOS Apple Push Notification service addon (raw device-token + UNNotification surface) for Hive Axyl Push.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "push", "addon", "apns", "apple", "ios", "macos"],
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0"
+  }
+}

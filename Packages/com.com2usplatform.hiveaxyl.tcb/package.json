@@ -1,0 +1,21 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.tcb",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl TCB Connector",
+  "description": "TCB Connector Capability for Hive Axyl SDK.",
+  "unity": "6000.0",
+  "author": {
+    "name": "Com2uS Platform",
+    "url": "https://platform.com2us.com/"
+  },
+  "keywords": [
+    "hive",
+    "axyl",
+    "sdk",
+    "tcb"
+  ],
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0"
+  }
+}

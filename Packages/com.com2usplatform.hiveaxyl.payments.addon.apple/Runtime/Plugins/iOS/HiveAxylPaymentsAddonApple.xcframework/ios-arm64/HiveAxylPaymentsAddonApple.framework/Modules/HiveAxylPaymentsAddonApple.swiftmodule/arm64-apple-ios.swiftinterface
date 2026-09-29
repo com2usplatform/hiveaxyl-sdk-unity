@@ -1,0 +1,482 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios17.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name HiveAxylPaymentsAddonApple
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import Foundation
+import HiveAxylCore
+import StoreKit
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+@available(iOS 17.0, macOS 14.0, *)
+final public class AppleStoreKitServiceNativeAdapterDefault : HiveAxylPaymentsAddonApple.AppleStoreKitServiceNativeAdapter, @unchecked Swift.Sendable {
+  public init()
+  final public func getProducts(request: HiveAxylPaymentsAddonApple.GetProductsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetProductsResult
+  final public func purchase(request: HiveAxylPaymentsAddonApple.PurchaseRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServicePurchaseResult
+  final public func startTransactionObserver(request: HiveAxylPaymentsAddonApple.StartTransactionObserverRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceStartTransactionObserverResult
+  final public func stopTransactionObserver(request: HiveAxylPaymentsAddonApple.StopTransactionObserverRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceStopTransactionObserverResult
+  final public func getCurrentEntitlements(request: HiveAxylPaymentsAddonApple.GetCurrentEntitlementsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetCurrentEntitlementsResult
+  final public func getAllTransactions(request: HiveAxylPaymentsAddonApple.GetAllTransactionsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetAllTransactionsResult
+  final public func getUnfinishedTransactions(request: HiveAxylPaymentsAddonApple.GetUnfinishedTransactionsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetUnfinishedTransactionsResult
+  final public func finishTransaction(request: HiveAxylPaymentsAddonApple.FinishTransactionRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceFinishTransactionResult
+  final public func sync(request: HiveAxylPaymentsAddonApple.SyncRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceSyncResult
+  final public func getStorefront(request: HiveAxylPaymentsAddonApple.GetStorefrontRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetStorefrontResult
+  @objc deinit
+}
+public protocol AppleStoreKitServiceNativeAdapter : AnyObject {
+  func getProducts(request: HiveAxylPaymentsAddonApple.GetProductsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetProductsResult
+  func purchase(request: HiveAxylPaymentsAddonApple.PurchaseRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServicePurchaseResult
+  func startTransactionObserver(request: HiveAxylPaymentsAddonApple.StartTransactionObserverRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceStartTransactionObserverResult
+  func stopTransactionObserver(request: HiveAxylPaymentsAddonApple.StopTransactionObserverRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceStopTransactionObserverResult
+  func getCurrentEntitlements(request: HiveAxylPaymentsAddonApple.GetCurrentEntitlementsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetCurrentEntitlementsResult
+  func getAllTransactions(request: HiveAxylPaymentsAddonApple.GetAllTransactionsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetAllTransactionsResult
+  func getUnfinishedTransactions(request: HiveAxylPaymentsAddonApple.GetUnfinishedTransactionsRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetUnfinishedTransactionsResult
+  func finishTransaction(request: HiveAxylPaymentsAddonApple.FinishTransactionRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceFinishTransactionResult
+  func sync(request: HiveAxylPaymentsAddonApple.SyncRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceSyncResult
+  func getStorefront(request: HiveAxylPaymentsAddonApple.GetStorefrontRequest) -> HiveAxylPaymentsAddonApple.AppleStoreKitServiceGetStorefrontResult
+  func onCancel(callbackId: Swift.Int)
+}
+extension HiveAxylPaymentsAddonApple.AppleStoreKitServiceNativeAdapter {
+  public func onCancel(callbackId: Swift.Int)
+}
+public struct AppleProduct : Swift.Codable {
+  public var id: Swift.String
+  public var displayName: Swift.String
+  public var description: Swift.String
+  public var displayPrice: Swift.String
+  @HiveAxylCore.DecimalValue public var price: Foundation.Decimal {
+    get
+    set
+    _modify
+  }
+  public var priceLocale: Swift.String
+  public var productType: HiveAxylPaymentsAddonApple.AppleProductType
+  public var subscription: HiveAxylPaymentsAddonApple.SubscriptionInfo?
+  public var isFamilyShareable: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AppleTransaction : Swift.Codable {
+  public var id: Swift.UInt64
+  public var originalId: Swift.UInt64
+  public var productId: Swift.String
+  public var productType: HiveAxylPaymentsAddonApple.AppleProductType
+  public var purchaseDate: Foundation.Date
+  public var originalPurchaseDate: Foundation.Date
+  public var expirationDate: Foundation.Date?
+  public var revocationDate: Foundation.Date?
+  public var revocationReason: HiveAxylPaymentsAddonApple.AppleRevocationReason
+  public var webOrderLineItemId: Swift.String?
+  public var subscriptionGroupId: Swift.String?
+  public var appAccountToken: Swift.String?
+  public var quantity: Swift.Int32
+  public var transactionReason: HiveAxylPaymentsAddonApple.AppleTransactionReason
+  public var signedDate: Foundation.Date
+  public var environment: HiveAxylPaymentsAddonApple.AppleEnvironment
+  public var ownershipType: HiveAxylPaymentsAddonApple.AppleOwnershipType
+  public var jwsRepresentation: Swift.String
+  public var verificationStatus: HiveAxylPaymentsAddonApple.AppleVerificationStatus
+  public var verificationError: HiveAxylPaymentsAddonApple.AppleVerificationError
+  public var bundleId: Swift.String
+  public var appBundleId: Swift.String?
+  public var isUpgraded: Swift.Bool
+  public var offerType: HiveAxylPaymentsAddonApple.AppleOfferType
+  public var offerId: Swift.String?
+  public var offerPaymentModeStringRepresentation: Swift.String?
+  public var offerPeriod: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @HiveAxylCore.OptionalDecimalValue public var price: Foundation.Decimal? {
+    get
+    set
+    _modify
+  }
+  #endif
+  public var currency: Swift.String?
+  public var storefrontCountryCode: Swift.String
+  public var deviceVerification: Swift.String
+  public var deviceVerificationNonce: Swift.String
+  public var appTransactionId: Swift.String?
+  public var signedRenewalInfo: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FinishTransactionRequest : Swift.Codable {
+  public var transactionId: Swift.UInt64
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FinishTransactionResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetAllTransactionsRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetAllTransactionsResponse : Swift.Codable {
+  public var transactions: [HiveAxylPaymentsAddonApple.AppleTransaction]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetCurrentEntitlementsRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetCurrentEntitlementsResponse : Swift.Codable {
+  public var transactions: [HiveAxylPaymentsAddonApple.AppleTransaction]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetProductsRequest : Swift.Codable {
+  public var productIds: [Swift.String]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetProductsResponse : Swift.Codable {
+  public var products: [HiveAxylPaymentsAddonApple.AppleProduct]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetStorefrontRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetStorefrontResponse : Swift.Codable {
+  public var countryCode: Swift.String
+  public var identifier: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetUnfinishedTransactionsRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetUnfinishedTransactionsResponse : Swift.Codable {
+  public var transactions: [HiveAxylPaymentsAddonApple.AppleTransaction]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Offer : Swift.Codable {
+  public var id: Swift.String?
+  public var type: HiveAxylPaymentsAddonApple.AppleOfferType
+  @HiveAxylCore.DecimalValue public var price: Foundation.Decimal {
+    get
+    set
+    _modify
+  }
+  public var displayPrice: Swift.String
+  public var period: HiveAxylPaymentsAddonApple.Period
+  public var periodCount: Swift.Int32
+  public var paymentMode: HiveAxylPaymentsAddonApple.ApplePaymentMode
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Period : Swift.Codable {
+  public var value: Swift.Int32
+  public var unit: HiveAxylPaymentsAddonApple.ApplePeriodUnit
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PurchaseOptions : Swift.Codable {
+  public var appAccountToken: Swift.String?
+  public var quantity: Swift.Int32?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PurchaseRequest : Swift.Codable {
+  public var productId: Swift.String
+  public var options: HiveAxylPaymentsAddonApple.PurchaseOptions?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PurchaseResponse : Swift.Codable {
+  public var transaction: HiveAxylPaymentsAddonApple.AppleTransaction
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct StartTransactionObserverRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct StartTransactionObserverResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct StopTransactionObserverRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct StopTransactionObserverResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubscriptionInfo : Swift.Codable {
+  public var subscriptionGroupId: Swift.String
+  public var subscriptionPeriod: HiveAxylPaymentsAddonApple.Period
+  public var introductoryOffer: HiveAxylPaymentsAddonApple.Offer?
+  public var promotionalOffers: [HiveAxylPaymentsAddonApple.Offer]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SyncRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SyncResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum AppleStoreKitServiceGetProductsResult {
+  case success(HiveAxylPaymentsAddonApple.GetProductsResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServicePurchaseResult {
+  case success(HiveAxylPaymentsAddonApple.PurchaseResponse)
+  case userCanceled
+  case pending
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceStartTransactionObserverResult {
+  case success(HiveAxylPaymentsAddonApple.StartTransactionObserverResponse)
+  case alreadyStarted
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceStopTransactionObserverResult {
+  case success(HiveAxylPaymentsAddonApple.StopTransactionObserverResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceGetCurrentEntitlementsResult {
+  case success(HiveAxylPaymentsAddonApple.GetCurrentEntitlementsResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceGetAllTransactionsResult {
+  case success(HiveAxylPaymentsAddonApple.GetAllTransactionsResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceGetUnfinishedTransactionsResult {
+  case success(HiveAxylPaymentsAddonApple.GetUnfinishedTransactionsResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceFinishTransactionResult {
+  case success(HiveAxylPaymentsAddonApple.FinishTransactionResponse)
+  case transactionNotFound
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceSyncResult {
+  case success(HiveAxylPaymentsAddonApple.SyncResponse)
+  case userCanceled
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleStoreKitServiceGetStorefrontResult {
+  case success(HiveAxylPaymentsAddonApple.GetStorefrontResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum AppleEnvironment : Swift.Int, Swift.Codable {
+  case unspecified
+  case production
+  case sandbox
+  case xcode
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppleOfferType : Swift.Int, Swift.Codable {
+  case unspecified
+  case introductory
+  case promotional
+  case code
+  case winBack
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppleOwnershipType : Swift.Int, Swift.Codable {
+  case unspecified
+  case purchased
+  case familyShared
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum ApplePaymentMode : Swift.Int, Swift.Codable {
+  case unspecified
+  case payAsYouGo
+  case payUpFront
+  case freeTrial
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum ApplePeriodUnit : Swift.Int, Swift.Codable {
+  case unspecified
+  case day
+  case week
+  case month
+  case year
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppleProductType : Swift.Int, Swift.Codable {
+  case unspecified
+  case consumable
+  case nonConsumable
+  case autoRenewable
+  case nonRenewable
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppleRevocationReason : Swift.Int, Swift.Codable {
+  case unspecified
+  case developerIssue
+  case other
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppleTransactionReason : Swift.Int, Swift.Codable {
+  case unspecified
+  case purchase
+  case renewal
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppleVerificationError : Swift.Int, Swift.Codable {
+  case unspecified
+  case invalidSignature
+  case revokedCertificate
+  case invalidDeviceVerification
+  case invalidCertificateChain
+  case invalidEncoding
+  case missingRequiredProperties
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AppleVerificationStatus : Swift.Int, Swift.Codable {
+  case unspecified
+  case verified
+  case unverified
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class AppleStoreKitServicePlugin : ObjectiveC.NSObject, HiveAxylCore.AxylPlugin, @unchecked Swift.Sendable {
+  @objc public static let pluginName: Swift.String
+  public init(adapter: any HiveAxylPaymentsAddonApple.AppleStoreKitServiceNativeAdapter, queue: Dispatch.DispatchQueue = DispatchQueue(
+            label: "com.com2usplatform.hiveaxyl.apple_store_kit_service.plugin",
+            qos: .userInitiated
+        ))
+  @objc public static func register()
+  public static func register(adapter: any HiveAxylPaymentsAddonApple.AppleStoreKitServiceNativeAdapter)
+  @objc final public func callSync(method: Swift.String, payload: Swift.String) -> Swift.String
+  @objc final public func callAsync(method: Swift.String, payload: Swift.String, onComplete: @escaping @Sendable @convention(block) (Swift.String) -> Swift.Void)
+  @objc final public func cancel(callbackId: Swift.Int)
+  @objc deinit
+}
+@_cdecl("Hive_Axyl_AppleStoreKitService_Register")
+public func Hive_Axyl_AppleStoreKitService_Register()
+extension HiveAxylPaymentsAddonApple.AppleEnvironment : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleEnvironment : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleEnvironment : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.AppleOfferType : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleOfferType : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleOfferType : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.AppleOwnershipType : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleOwnershipType : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleOwnershipType : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.ApplePaymentMode : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.ApplePaymentMode : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.ApplePaymentMode : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.ApplePeriodUnit : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.ApplePeriodUnit : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.ApplePeriodUnit : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.AppleProductType : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleProductType : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleProductType : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.AppleRevocationReason : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleRevocationReason : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleRevocationReason : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.AppleTransactionReason : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleTransactionReason : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleTransactionReason : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.AppleVerificationError : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleVerificationError : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleVerificationError : Swift.RawRepresentable {}
+extension HiveAxylPaymentsAddonApple.AppleVerificationStatus : Swift.Equatable {}
+extension HiveAxylPaymentsAddonApple.AppleVerificationStatus : Swift.Hashable {}
+extension HiveAxylPaymentsAddonApple.AppleVerificationStatus : Swift.RawRepresentable {}

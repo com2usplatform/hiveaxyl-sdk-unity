@@ -1,0 +1,4 @@
+framework module HiveAxylAuthAddonApple {
+  header "HiveAxylAuthAddonApple-Swift.h"
+  requires objc
+}

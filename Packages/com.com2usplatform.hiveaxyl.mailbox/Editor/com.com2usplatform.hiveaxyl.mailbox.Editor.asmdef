@@ -1,0 +1,18 @@
+{
+  "name": "Hive.Axyl.Mailbox.Editor",
+  "rootNamespace": "Hive.Axyl.Mailbox.Editor",
+  "references": [
+    "Hive.Axyl.Mailbox"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

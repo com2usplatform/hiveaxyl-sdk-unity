@@ -1,0 +1,110 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios17.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name HiveAxylStorage
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import Foundation
+import HiveAxylCore
+import Security
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers final public class SecureStorageNativeAdapterDefault : HiveAxylStorage.SecureStorageNativeAdapter, @unchecked Swift.Sendable {
+  convenience public init(appId: Swift.String)
+  final public func save(request: HiveAxylStorage.SecureStorageSaveRequest) -> HiveAxylStorage.SecureStorageSaveResult
+  final public func load(request: HiveAxylStorage.SecureStorageLoadRequest) -> HiveAxylStorage.SecureStorageLoadResult
+  final public func delete(request: HiveAxylStorage.SecureStorageDeleteRequest) -> HiveAxylStorage.SecureStorageDeleteResult
+  final public func clear(request: HiveAxylStorage.SecureStorageClearRequest) -> HiveAxylStorage.SecureStorageClearResult
+  @objc deinit
+}
+public protocol SecureStorageNativeAdapter : AnyObject {
+  func save(request: HiveAxylStorage.SecureStorageSaveRequest) -> HiveAxylStorage.SecureStorageSaveResult
+  func load(request: HiveAxylStorage.SecureStorageLoadRequest) -> HiveAxylStorage.SecureStorageLoadResult
+  func delete(request: HiveAxylStorage.SecureStorageDeleteRequest) -> HiveAxylStorage.SecureStorageDeleteResult
+  func clear(request: HiveAxylStorage.SecureStorageClearRequest) -> HiveAxylStorage.SecureStorageClearResult
+  func onCancel(callbackId: Swift.Int)
+}
+extension HiveAxylStorage.SecureStorageNativeAdapter {
+  public func onCancel(callbackId: Swift.Int)
+}
+public struct SecureStorageClearRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecureStorageClearResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecureStorageDeleteRequest : Swift.Codable {
+  public var key: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecureStorageDeleteResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecureStorageLoadRequest : Swift.Codable {
+  public var key: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecureStorageLoadResponse : Swift.Codable {
+  public var value: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecureStorageSaveRequest : Swift.Codable {
+  public var key: Swift.String
+  public var value: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecureStorageSaveResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum SecureStorageSaveResult {
+  case success(HiveAxylStorage.SecureStorageSaveResponse)
+  case dataCorrupted
+  case accessDenied
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum SecureStorageLoadResult {
+  case success(HiveAxylStorage.SecureStorageLoadResponse)
+  case dataCorrupted
+  case accessDenied
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum SecureStorageDeleteResult {
+  case success(HiveAxylStorage.SecureStorageDeleteResponse)
+  case dataCorrupted
+  case accessDenied
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum SecureStorageClearResult {
+  case success(HiveAxylStorage.SecureStorageClearResponse)
+  case accessDenied
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+@objc final public class SecureStoragePlugin : ObjectiveC.NSObject, HiveAxylCore.AxylPlugin, @unchecked Swift.Sendable {
+  @objc public static let pluginName: Swift.String
+  public init(adapter: any HiveAxylStorage.SecureStorageNativeAdapter, queue: Dispatch.DispatchQueue = DispatchQueue(
+            label: "com.com2usplatform.hiveaxyl.secure_storage.plugin",
+            qos: .userInitiated
+        ))
+  @objc public static func register()
+  public static func register(adapter: any HiveAxylStorage.SecureStorageNativeAdapter)
+  @objc final public func callSync(method: Swift.String, payload: Swift.String) -> Swift.String
+  @objc final public func callAsync(method: Swift.String, payload: Swift.String, onComplete: @escaping @Sendable @convention(block) (Swift.String) -> Swift.Void)
+  @objc final public func cancel(callbackId: Swift.Int)
+  @objc deinit
+}
+#if compiler(>=5.3) && $NonescapableTypes
+@_cdecl("Hive_Axyl_SecureStorage_Register")
+public func Hive_Axyl_SecureStorage_Register(_ appId: Swift.UnsafePointer<Swift.CChar>?)
+#endif

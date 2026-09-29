@@ -1,0 +1,4 @@
+framework module HiveAxylPaymentsAddonApple {
+  header "HiveAxylPaymentsAddonApple-Swift.h"
+  requires objc
+}

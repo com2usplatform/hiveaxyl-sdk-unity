@@ -1,0 +1,14 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.storage",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Storage",
+  "description": "Storage module (ISecureStorage interface and DTOs) for Hive Axyl SDK.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "storage", "secure-storage"],
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0"
+  }
+}

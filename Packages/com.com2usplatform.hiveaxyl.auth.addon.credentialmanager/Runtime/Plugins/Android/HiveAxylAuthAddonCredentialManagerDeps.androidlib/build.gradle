@@ -1,0 +1,43 @@
+// Dependency-only Android Library plug-in for com.com2usplatform.hiveaxyl.auth.addon.credentialmanager.
+//
+// hive-axyl-auth-addon-credentialmanager.aar
+// is consumed by the Unity build as a local file, so the artifact's POM is never
+// read and Gradle resolves none of its runtime dependencies. Unity makes every
+// .androidlib a Gradle module that the built-in unityLibrary module depends on,
+// so declaring the coordinates here is what puts them into the APK.
+// `implementation` is the right scope: the AAR's Kotlin is already compiled and
+// Unity's C# never compiles against Java, so nothing needs these at compile time.
+//
+// Coordinates MUST stay in sync with the `auth.addon.credentialmanager` Android module's
+// build.gradle.kts; a CI check fails when they drift.
+//
+// Do not add a `repositories` block — Unity's generated settings.gradle owns
+// repository declarations via dependencyResolutionManagement.
+apply plugin: 'com.android.library'
+
+android {
+    namespace "com.com2usplatform.hiveaxyl.auth.addon.credentialmanager.deps"
+    compileSdk getProperty("unity.compileSdkVersion") as int
+
+    compileOptions {
+        sourceCompatibility JavaVersion.valueOf(getProperty("unity.javaCompatabilityVersion"))
+        targetCompatibility JavaVersion.valueOf(getProperty("unity.javaCompatabilityVersion"))
+    }
+
+    defaultConfig {
+        minSdk getProperty("unity.minSdkVersion") as int
+        targetSdk getProperty("unity.targetSdkVersion") as int
+    }
+}
+
+dependencies {
+    implementation 'androidx.credentials:credentials:1.6.0'
+    implementation 'androidx.credentials:credentials-play-services-auth:1.6.0'
+    // 1.2.0 is a floor, not a preference: GoogleIdTokenCredential.uniqueId and
+    // .email do not exist before it, and the addon reads both. A game that
+    // resolves an older googleid fails at Login with FAILED_PRECONDITION naming
+    // this requirement. A CI check keeps this in step with the module's
+    // build.gradle.kts.
+    implementation 'com.google.android.libraries.identity.googleid:googleid:1.2.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3'
+}

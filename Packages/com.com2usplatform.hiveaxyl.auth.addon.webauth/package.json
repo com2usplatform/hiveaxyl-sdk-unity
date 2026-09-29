@@ -1,0 +1,14 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.auth.addon.webauth",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Auth Addon - WebAuth",
+  "description": "OAuth 2.0 (RFC 8252) external user-agent authentication addon for Hive Axyl SDK. Opens authorization URLs in the platform web auth session (iOS/macOS ASWebAuthenticationSession, Android Chrome Custom Tabs, Windows loopback HTTP, WebGL postMessage) and returns the raw redirect callback. OAuth interpretation (PKCE, state, nonce) and redirect-URI matching are the App / Auth Capability responsibility.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "auth", "addon", "webauth", "oauth"],
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0"
+  }
+}
