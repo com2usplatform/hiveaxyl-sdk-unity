@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Intentionally empty. This module contributes no code, resources, permissions
+  or components — it exists only to carry the `dependencies` block in
+  build.gradle. The namespace lives there (AGP 8 rejects a `package` attribute
+  here), so nothing is required in this file beyond a well-formed root element.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" />

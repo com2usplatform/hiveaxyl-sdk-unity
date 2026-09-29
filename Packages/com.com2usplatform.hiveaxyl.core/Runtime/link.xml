@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  IL2CPP managed code stripping prevention for the Hive Axyl Core package.
+
+  The package has two assemblies:
+    - Hive.Axyl.Core.Internal : precompiled DLL
+                                (Runtime/Plugins/Hive.Axyl.Core.Internal.dll)
+    - Hive.Axyl.Core          : compiled from the C# sources under Runtime/
+                                via com.com2usplatform.hiveaxyl.core.asmdef;
+                                references the DLL.
+
+  Both need preservation:
+    - The DLL holds reflection-reachable code paths.
+    - Hive.Axyl.Core holds callbacks reached only from native code (the
+      [MonoPInvokeCallback] trampolines in JslibInterop and PInvokeInterop,
+      and the AndroidJavaProxy JniBridgeCallback), which would otherwise be
+      stripped.
+
+  System.Globalization.CultureInfo is used in UnityAppEnvironment for BCP 47
+  language detection; strip levels may drop the CultureInfo lookup tables
+  if it appears unreferenced at static analysis time.
+-->
+<linker>
+  <assembly fullname="Hive.Axyl.Core" preserve="all"/>
+  <assembly fullname="Hive.Axyl.Core.Internal" preserve="all"/>
+  <assembly fullname="System.Globalization">
+    <type fullname="System.Globalization.CultureInfo" preserve="all"/>
+  </assembly>
+  <assembly fullname="mscorlib">
+    <type fullname="System.Globalization.CultureInfo" preserve="all"/>
+  </assembly>
+</linker>

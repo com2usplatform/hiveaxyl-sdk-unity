@@ -1,0 +1,16 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.payments.addon.apple",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Payments Addon - Apple StoreKit",
+  "description": "Apple StoreKit2 in-app purchase addon for Hive Axyl SDK. Wraps Product / Transaction / AppStore to expose raw StoreKit2 product, purchase, and transaction fields (including the signed JWS) on iOS 17.0+ and macOS 15.0+.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "payments", "addon", "apple", "storekit", "iap"],
+  "documentationUrl": "https://developers.hiveplatform.ai/axyl/",
+  "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments.addon.apple/CHANGELOG.md",
+  "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments.addon.apple/LICENSE.md",
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0"
+  }
+}

@@ -1,0 +1,156 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios17.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name HiveAxylCore
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import Foundation
+@_exported import HiveAxylCore
+import ObjectiveC
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+final public class AxylBridgeDispatcher : @unchecked Swift.Sendable {
+  public typealias AsyncResponseCallback = @convention(c) (Swift.Int32, Swift.UnsafePointer<Swift.CChar>?) -> Swift.Void
+  public typealias EventCallback = @convention(c) (Swift.UnsafePointer<Swift.CChar>?, Swift.UnsafePointer<Swift.CChar>?) -> Swift.Void
+  public static let shared: HiveAxylCore.AxylBridgeDispatcher
+  public init()
+  final public func register(name: Swift.String, plugin: any HiveAxylCore.AxylPlugin)
+  final public func unregister(name: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func setCallbacks(asyncResponse: HiveAxylCore.AxylBridgeDispatcher.AsyncResponseCallback?, event: HiveAxylCore.AxylBridgeDispatcher.EventCallback?)
+  #endif
+  final public func completeAsync(callbackId: Swift.Int32, responseJson: Swift.String)
+  final public func emitEvent(name: Swift.String, payload: Swift.String)
+  final public func shutdown()
+  @objc deinit
+}
+public enum AxylJSONCoding {
+  public static func makeEncoder() -> Foundation.JSONEncoder
+  public static func makeDecoder() -> Foundation.JSONDecoder
+}
+#if compiler(>=5.3) && $NonescapableTypes
+@_cdecl("Hive_Axyl_Core_SetCallbacks")
+public func hive_axyl_core_set_callbacks(_ asyncResponse: HiveAxylCore.AxylBridgeDispatcher.AsyncResponseCallback?, _ event: HiveAxylCore.AxylBridgeDispatcher.EventCallback?)
+#endif
+#if compiler(>=5.3) && $NonescapableTypes
+@_cdecl("Hive_Axyl_Core_CallSync")
+public func hive_axyl_core_call_sync(_ pluginName: Swift.UnsafePointer<Swift.CChar>?, _ methodName: Swift.UnsafePointer<Swift.CChar>?, _ payload: Swift.UnsafePointer<Swift.CChar>?) -> Swift.UnsafeMutablePointer<Swift.CChar>?
+#endif
+#if compiler(>=5.3) && $NonescapableTypes
+@_cdecl("Hive_Axyl_Core_CallAsync")
+public func hive_axyl_core_call_async(_ pluginName: Swift.UnsafePointer<Swift.CChar>?, _ methodName: Swift.UnsafePointer<Swift.CChar>?, _ enrichedPayload: Swift.UnsafePointer<Swift.CChar>?)
+#endif
+#if compiler(>=5.3) && $NonescapableTypes
+@_cdecl("Hive_Axyl_Core_FreeString")
+public func hive_axyl_core_free_string(_ ptr: Swift.UnsafeMutablePointer<Swift.CChar>?)
+#endif
+@_cdecl("Hive_Axyl_Core_Shutdown")
+public func hive_axyl_core_shutdown()
+public enum AxylPluginLoader {
+  public static func registerAll()
+}
+@objc public protocol AxylPlugin : ObjectiveC.NSObjectProtocol {
+  @objc static func register()
+  @objc func callSync(method: Swift.String, payload: Swift.String) -> Swift.String
+  @objc func callAsync(method: Swift.String, payload: Swift.String, onComplete: @escaping @Sendable @convention(block) (Swift.String) -> Swift.Void)
+  @objc optional func cancel(callbackId: Swift.Int)
+}
+@propertyWrapper public struct DecimalValue : Swift.Codable, Swift.Equatable, Swift.Hashable, Swift.Sendable {
+  public var wrappedValue: Foundation.Decimal
+  public init(wrappedValue: Foundation.Decimal)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public static func == (a: HiveAxylCore.DecimalValue, b: HiveAxylCore.DecimalValue) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@propertyWrapper public struct OptionalDecimalValue : Swift.Codable, Swift.Equatable, Swift.Hashable, Swift.Sendable {
+  public var wrappedValue: Foundation.Decimal?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(wrappedValue: Foundation.Decimal?)
+  #endif
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public static func == (a: HiveAxylCore.OptionalDecimalValue, b: HiveAxylCore.OptionalDecimalValue) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Swift.KeyedDecodingContainer {
+  public func decode(_ type: HiveAxylCore.OptionalDecimalValue.Type, forKey key: Swift.KeyedDecodingContainer<K>.Key) throws -> HiveAxylCore.OptionalDecimalValue
+}
+extension Swift.KeyedEncodingContainer {
+  public mutating func encode(_ value: HiveAxylCore.OptionalDecimalValue, forKey key: Swift.KeyedEncodingContainer<K>.Key) throws
+}
+public struct HiveError : Swift.Sendable, Swift.Equatable {
+  public let code: HiveAxylCore.HiveErrorCode
+  public let message: Swift.String
+  public let externalCode: Swift.String?
+  public let traceId: Swift.String?
+  public let details: [Swift.String : Swift.String]?
+  public let type: Swift.String?
+  public let instance: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(code: HiveAxylCore.HiveErrorCode, message: Swift.String, externalCode: Swift.String? = nil, traceId: Swift.String? = nil, details: [Swift.String : Swift.String]? = nil, type: Swift.String? = nil, instance: Swift.String? = nil)
+  #endif
+  public func toJSONObject() -> [Swift.String : Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func toJSONString() -> Swift.String?
+  #endif
+  public static func from(json: [Swift.String : Any]) -> HiveAxylCore.HiveError
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func from(jsonString payload: Swift.String) -> HiveAxylCore.HiveError?
+  #endif
+  public static func == (a: HiveAxylCore.HiveError, b: HiveAxylCore.HiveError) -> Swift.Bool
+}
+public enum HiveErrorCode : Swift.Int, Swift.Sendable, Swift.CaseIterable {
+  case ok
+  case cancelled
+  case unknown
+  case invalidArgument
+  case deadlineExceeded
+  case notFound
+  case alreadyExists
+  case permissionDenied
+  case resourceExhausted
+  case failedPrecondition
+  case aborted
+  case outOfRange
+  case unimplemented
+  case internalError
+  case unavailable
+  case dataLoss
+  case unauthenticated
+  public var wireName: Swift.String {
+    get
+  }
+  public static func from(value: Swift.Int) -> HiveAxylCore.HiveErrorCode
+  public static func from(wireName name: Swift.String) -> HiveAxylCore.HiveErrorCode
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [HiveAxylCore.HiveErrorCode]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [HiveAxylCore.HiveErrorCode] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol IUnknownOutcome {
+  var code: Swift.String { get }
+  var rawJson: Swift.String { get }
+}
+public protocol IUntypedProblem {
+  var problem: HiveAxylCore.HiveError { get }
+}
+public protocol IUserCanceledOutcome {
+}
+extension HiveAxylCore.HiveErrorCode : Swift.Equatable {}
+extension HiveAxylCore.HiveErrorCode : Swift.Hashable {}
+extension HiveAxylCore.HiveErrorCode : Swift.RawRepresentable {}

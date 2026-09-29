@@ -1,0 +1,17 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.core",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Core",
+  "description": "Core infrastructure module for Hive Axyl SDK.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "core"],
+  "documentationUrl": "https://developers.hiveplatform.ai/axyl/",
+  "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.core/CHANGELOG.md",
+  "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.core/LICENSE.md",
+  "dependencies": {
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0"
+  }
+}

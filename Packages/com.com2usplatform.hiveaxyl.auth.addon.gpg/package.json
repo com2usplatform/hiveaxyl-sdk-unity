@@ -1,0 +1,17 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.auth.addon.gpg",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Auth Addon - Google Play Games",
+  "description": "Android Google Play Games addon (play-services-games-v2 GamesSignInClient) for Hive Axyl Auth.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "auth", "addon", "gpg", "google-play-games", "android"],
+  "documentationUrl": "https://developers.hiveplatform.ai/axyl/",
+  "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth.addon.gpg/CHANGELOG.md",
+  "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth.addon.gpg/LICENSE.md",
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0"
+  }
+}

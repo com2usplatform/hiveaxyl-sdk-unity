@@ -1,0 +1,57 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios17.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name HiveAxylAuthAddonWebAuth
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AuthenticationServices
+import Foundation
+import HiveAxylCore
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers final public class ExternalUserAgentServiceNativeAdapterDefault : HiveAxylAuthAddonWebAuth.ExternalUserAgentServiceNativeAdapter, @unchecked Swift.Sendable {
+  convenience public init()
+  final public func open(request: HiveAxylAuthAddonWebAuth.OpenRequest) -> HiveAxylAuthAddonWebAuth.ExternalUserAgentServiceOpenResult
+  @objc deinit
+}
+public protocol ExternalUserAgentServiceNativeAdapter : AnyObject {
+  func open(request: HiveAxylAuthAddonWebAuth.OpenRequest) -> HiveAxylAuthAddonWebAuth.ExternalUserAgentServiceOpenResult
+  func onCancel(callbackId: Swift.Int)
+}
+extension HiveAxylAuthAddonWebAuth.ExternalUserAgentServiceNativeAdapter {
+  public func onCancel(callbackId: Swift.Int)
+}
+public struct OpenRequest : Swift.Codable {
+  public var url: Swift.String
+  public var redirectUri: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct OpenResponse : Swift.Codable {
+  public var callbackUrl: Swift.String
+  public var parameters: [Swift.String : Swift.String]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ExternalUserAgentServiceOpenResult {
+  case success(HiveAxylAuthAddonWebAuth.OpenResponse)
+  case userCanceled
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+@objc final public class ExternalUserAgentServicePlugin : ObjectiveC.NSObject, HiveAxylCore.AxylPlugin, @unchecked Swift.Sendable {
+  @objc public static let pluginName: Swift.String
+  public init(adapter: any HiveAxylAuthAddonWebAuth.ExternalUserAgentServiceNativeAdapter, queue: Dispatch.DispatchQueue = DispatchQueue(
+            label: "com.com2usplatform.hiveaxyl.external_user_agent_service.plugin",
+            qos: .userInitiated
+        ))
+  @objc public static func register()
+  public static func register(adapter: any HiveAxylAuthAddonWebAuth.ExternalUserAgentServiceNativeAdapter)
+  @objc final public func callSync(method: Swift.String, payload: Swift.String) -> Swift.String
+  @objc final public func callAsync(method: Swift.String, payload: Swift.String, onComplete: @escaping @Sendable @convention(block) (Swift.String) -> Swift.Void)
+  @objc final public func cancel(callbackId: Swift.Int)
+  @objc deinit
+}
+@_cdecl("Hive_Axyl_ExternalUserAgentService_Register")
+public func Hive_Axyl_ExternalUserAgentService_Register()

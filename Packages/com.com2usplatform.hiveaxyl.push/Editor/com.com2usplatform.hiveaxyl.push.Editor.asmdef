@@ -1,0 +1,18 @@
+{
+  "name": "Hive.Axyl.Push.Editor",
+  "rootNamespace": "Hive.Axyl.Push.Editor",
+  "references": [
+    "Hive.Axyl.Push"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

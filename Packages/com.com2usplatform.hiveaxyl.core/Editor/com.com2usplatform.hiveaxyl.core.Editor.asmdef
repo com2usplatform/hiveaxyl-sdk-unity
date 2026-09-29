@@ -1,0 +1,18 @@
+{
+  "name": "Hive.Axyl.Core.Editor",
+  "rootNamespace": "Hive.Axyl.Core.Editor",
+  "references": [
+    "Hive.Axyl.Core"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

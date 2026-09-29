@@ -1,0 +1,18 @@
+{
+  "name": "Hive.Axyl.Push.Addon.FCM.Editor",
+  "rootNamespace": "Hive.Axyl.Push.Addon.FCM.Editor",
+  "references": [
+    "Hive.Axyl.Push.Addon.FCM"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
