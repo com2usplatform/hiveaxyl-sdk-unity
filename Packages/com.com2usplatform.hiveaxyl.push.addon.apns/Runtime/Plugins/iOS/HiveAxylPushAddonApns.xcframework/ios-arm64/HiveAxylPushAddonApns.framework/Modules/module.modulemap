@@ -1,0 +1,4 @@
+framework module HiveAxylPushAddonApns {
+  header "HiveAxylPushAddonApns-Swift.h"
+  requires objc
+}

@@ -1,0 +1,17 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.auth.addon.steam",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Auth Addon - Steam",
+  "description": "Steam authentication addon for Hive Axyl SDK. Wraps Steamworks SDK ISteamUser::GetAuthTicketForWebApi for Web API backend verification on Windows and macOS.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "auth", "addon", "steam"],
+  "documentationUrl": "https://developers.hiveplatform.ai/axyl/",
+  "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth.addon.steam/CHANGELOG.md",
+  "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth.addon.steam/LICENSE.md",
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.com2usplatform.hiveaxyl.steamworks": "1.0.0"
+  }
+}

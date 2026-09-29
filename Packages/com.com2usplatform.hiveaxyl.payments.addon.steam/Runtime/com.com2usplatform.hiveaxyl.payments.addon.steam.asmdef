@@ -1,0 +1,24 @@
+{
+  "name": "Hive.Axyl.Payments.Addon.Steam",
+  "rootNamespace": "Hive.Axyl.Payments.Addon.Steam",
+  "references": [
+    "Hive.Axyl.Core",
+    "Hive.Axyl.Steamworks",
+    "com.rlabrecque.steamworks.net"
+  ],
+  "includePlatforms": [
+    "Editor",
+    "LinuxStandalone64",
+    "macOSStandalone",
+    "WindowsStandalone32",
+    "WindowsStandalone64"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

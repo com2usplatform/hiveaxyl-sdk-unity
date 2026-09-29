@@ -1,0 +1,17 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.auth.addon.credentialmanager",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Auth Addon - Credential Manager",
+  "description": "Android Credential Manager addon (AndroidX Credential Manager + Google Identity SDK) for Hive Axyl Auth.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "auth", "addon", "credential-manager", "android"],
+  "documentationUrl": "https://developers.hiveplatform.ai/axyl/",
+  "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth.addon.credentialmanager/CHANGELOG.md",
+  "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth.addon.credentialmanager/LICENSE.md",
+  "dependencies": {
+    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0"
+  }
+}

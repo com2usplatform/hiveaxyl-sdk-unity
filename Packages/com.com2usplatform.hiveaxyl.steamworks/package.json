@@ -1,0 +1,16 @@
+{
+  "name": "com.com2usplatform.hiveaxyl.steamworks",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "displayName": "Hive Axyl Steamworks",
+  "description": "Steamworks SDK infrastructure module for Hive Axyl SDK. Wraps the Steamworks.NET managed binding, whose package also carries the Steamworks native libraries, as the single entry point for all Steamworks-dependent packages.",
+  "unity": "6000.0",
+  "author": { "name": "Com2uS Platform", "url": "https://platform.com2us.com/" },
+  "keywords": ["hive", "axyl", "sdk", "steamworks", "steam"],
+  "documentationUrl": "https://developers.hiveplatform.ai/axyl/",
+  "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.steamworks/CHANGELOG.md",
+  "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.steamworks/LICENSE.md",
+  "dependencies": {
+    "com.rlabrecque.steamworks.net": "20.2.0"
+  }
+}

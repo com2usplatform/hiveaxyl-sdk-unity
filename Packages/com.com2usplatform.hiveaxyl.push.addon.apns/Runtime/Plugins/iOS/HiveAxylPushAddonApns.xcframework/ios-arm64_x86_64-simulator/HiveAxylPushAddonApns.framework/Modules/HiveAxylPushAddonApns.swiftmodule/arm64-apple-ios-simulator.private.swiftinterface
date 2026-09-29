@@ -1,0 +1,346 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios17.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name HiveAxylPushAddonApns
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import Foundation
+import HiveAxylCore
+import Swift
+import UIKit
+import UserNotifications
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+final public class ApnsColdStartBuffer : @unchecked Swift.Sendable {
+  public static let shared: HiveAxylPushAddonApns.ApnsColdStartBuffer
+  public init()
+  final public func capture(remotePayload: [Swift.AnyHashable : Any])
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func drain() -> HiveAxylPushAddonApns.ApnsNotification?
+  #endif
+  @objc deinit
+}
+public enum ApnsNotificationMapper {
+  public static func unset() -> HiveAxylPushAddonApns.ApnsNotification
+  public static func map(content: UserNotifications.UNNotificationContent) -> HiveAxylPushAddonApns.ApnsNotification
+  public static func map(remotePayload: [Swift.AnyHashable : Any]) -> HiveAxylPushAddonApns.ApnsNotification
+}
+extension HiveAxylPushAddonApns.ApnsServiceNativeAdapterDefault {
+  final public func getColdStartNotification(request: HiveAxylPushAddonApns.APNSServiceGetColdStartNotificationRequest) -> HiveAxylPushAddonApns.ApnsServiceGetColdStartNotificationResult
+  final public func notifyColdStartNotification(request: HiveAxylPushAddonApns.APNSServiceNotifyColdStartNotificationRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyColdStartNotificationResult
+}
+@_hasMissingDesignatedInitializers final public class ApnsServiceNativeAdapterDefault : HiveAxylPushAddonApns.ApnsServiceNativeAdapter, @unchecked Swift.Sendable {
+  convenience public init()
+  final public func getToken(request: HiveAxylPushAddonApns.APNSServiceGetTokenRequest) -> HiveAxylPushAddonApns.ApnsServiceGetTokenResult
+  final public func getProviderEnvironment(request: HiveAxylPushAddonApns.APNSServiceGetProviderEnvironmentRequest) -> HiveAxylPushAddonApns.ApnsServiceGetProviderEnvironmentResult
+  final public func requestAuthorization(request: HiveAxylPushAddonApns.APNSServiceRequestAuthorizationRequest) -> HiveAxylPushAddonApns.ApnsServiceRequestAuthorizationResult
+  final public func setBadgeCount(request: HiveAxylPushAddonApns.APNSServiceSetBadgeCountRequest) -> HiveAxylPushAddonApns.ApnsServiceSetBadgeCountResult
+  final public func getNotificationSettings(request: HiveAxylPushAddonApns.APNSServiceGetNotificationSettingsRequest) -> HiveAxylPushAddonApns.ApnsServiceGetNotificationSettingsResult
+  final public func notifyDidRegisterForRemoteNotifications(request: HiveAxylPushAddonApns.APNSServiceNotifyDidRegisterForRemoteNotificationsRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyDidRegisterForRemoteNotificationsResult
+  final public func notifyDidFailToRegister(request: HiveAxylPushAddonApns.APNSServiceNotifyDidFailToRegisterRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyDidFailToRegisterResult
+  final public func notifyWillPresentNotification(request: HiveAxylPushAddonApns.APNSServiceNotifyWillPresentNotificationRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyWillPresentNotificationResult
+  final public func notifyDidReceiveResponse(request: HiveAxylPushAddonApns.APNSServiceNotifyDidReceiveResponseRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyDidReceiveResponseResult
+  @objc deinit
+}
+public protocol ApnsServiceNativeAdapter : AnyObject {
+  func getToken(request: HiveAxylPushAddonApns.APNSServiceGetTokenRequest) -> HiveAxylPushAddonApns.ApnsServiceGetTokenResult
+  func getProviderEnvironment(request: HiveAxylPushAddonApns.APNSServiceGetProviderEnvironmentRequest) -> HiveAxylPushAddonApns.ApnsServiceGetProviderEnvironmentResult
+  func getColdStartNotification(request: HiveAxylPushAddonApns.APNSServiceGetColdStartNotificationRequest) -> HiveAxylPushAddonApns.ApnsServiceGetColdStartNotificationResult
+  func requestAuthorization(request: HiveAxylPushAddonApns.APNSServiceRequestAuthorizationRequest) -> HiveAxylPushAddonApns.ApnsServiceRequestAuthorizationResult
+  func setBadgeCount(request: HiveAxylPushAddonApns.APNSServiceSetBadgeCountRequest) -> HiveAxylPushAddonApns.ApnsServiceSetBadgeCountResult
+  func getNotificationSettings(request: HiveAxylPushAddonApns.APNSServiceGetNotificationSettingsRequest) -> HiveAxylPushAddonApns.ApnsServiceGetNotificationSettingsResult
+  func notifyDidRegisterForRemoteNotifications(request: HiveAxylPushAddonApns.APNSServiceNotifyDidRegisterForRemoteNotificationsRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyDidRegisterForRemoteNotificationsResult
+  func notifyDidFailToRegister(request: HiveAxylPushAddonApns.APNSServiceNotifyDidFailToRegisterRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyDidFailToRegisterResult
+  func notifyWillPresentNotification(request: HiveAxylPushAddonApns.APNSServiceNotifyWillPresentNotificationRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyWillPresentNotificationResult
+  func notifyDidReceiveResponse(request: HiveAxylPushAddonApns.APNSServiceNotifyDidReceiveResponseRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyDidReceiveResponseResult
+  func notifyColdStartNotification(request: HiveAxylPushAddonApns.APNSServiceNotifyColdStartNotificationRequest) -> HiveAxylPushAddonApns.ApnsServiceNotifyColdStartNotificationResult
+  func onCancel(callbackId: Swift.Int)
+}
+extension HiveAxylPushAddonApns.ApnsServiceNativeAdapter {
+  public func onCancel(callbackId: Swift.Int)
+}
+public struct APNSServiceGetColdStartNotificationRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceGetColdStartNotificationResponse : Swift.Codable {
+  public var notification: HiveAxylPushAddonApns.ApnsNotification
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceGetNotificationSettingsRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceGetNotificationSettingsResponse : Swift.Codable {
+  public var authorizationStatus: HiveAxylPushAddonApns.UNAuthorizationStatus
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceGetProviderEnvironmentRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceGetProviderEnvironmentResponse : Swift.Codable {
+  public var environment: HiveAxylPushAddonApns.ProviderEnvironment
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceGetTokenRequest : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceGetTokenResponse : Swift.Codable {
+  public var token: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyColdStartNotificationRequest : Swift.Codable {
+  public var userInfoJson: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyColdStartNotificationResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyDidFailToRegisterRequest : Swift.Codable {
+  public var errorDescription: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyDidFailToRegisterResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyDidReceiveResponseRequest : Swift.Codable {
+  public var notification: HiveAxylPushAddonApns.ApnsNotification
+  public var actionIdentifier: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyDidReceiveResponseResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyDidRegisterForRemoteNotificationsRequest : Swift.Codable {
+  public var deviceToken: Foundation.Data
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyDidRegisterForRemoteNotificationsResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyWillPresentNotificationRequest : Swift.Codable {
+  public var notification: HiveAxylPushAddonApns.ApnsNotification
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceNotifyWillPresentNotificationResponse : Swift.Codable {
+  public var presentationOptions: [HiveAxylPushAddonApns.UNNotificationPresentationOption]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceRequestAuthorizationRequest : Swift.Codable {
+  public var options: [HiveAxylPushAddonApns.UNAuthorizationOption]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceRequestAuthorizationResponse : Swift.Codable {
+  public var granted: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceSetBadgeCountRequest : Swift.Codable {
+  public var count: Swift.Int32
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct APNSServiceSetBadgeCountResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ApnsNotification : Swift.Codable {
+  public var title: Swift.String
+  public var subtitle: Swift.String
+  public var body: Swift.String
+  public var badge: Swift.Int32
+  public var sound: Swift.String
+  public var categoryIdentifier: Swift.String
+  public var threadIdentifier: Swift.String
+  public var launchImageName: Swift.String
+  public var targetContentIdentifier: Swift.String
+  public var interruptionLevel: HiveAxylPushAddonApns.UNNotificationInterruptionLevel
+  public var relevanceScore: Swift.Double
+  public var userInfoJson: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ApnsServiceGetTokenResult {
+  case success(HiveAxylPushAddonApns.APNSServiceGetTokenResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceGetProviderEnvironmentResult {
+  case success(HiveAxylPushAddonApns.APNSServiceGetProviderEnvironmentResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceGetColdStartNotificationResult {
+  case success(HiveAxylPushAddonApns.APNSServiceGetColdStartNotificationResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceRequestAuthorizationResult {
+  case success(HiveAxylPushAddonApns.APNSServiceRequestAuthorizationResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceSetBadgeCountResult {
+  case success(HiveAxylPushAddonApns.APNSServiceSetBadgeCountResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceGetNotificationSettingsResult {
+  case success(HiveAxylPushAddonApns.APNSServiceGetNotificationSettingsResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceNotifyDidRegisterForRemoteNotificationsResult {
+  case success(HiveAxylPushAddonApns.APNSServiceNotifyDidRegisterForRemoteNotificationsResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceNotifyDidFailToRegisterResult {
+  case success(HiveAxylPushAddonApns.APNSServiceNotifyDidFailToRegisterResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceNotifyWillPresentNotificationResult {
+  case success(HiveAxylPushAddonApns.APNSServiceNotifyWillPresentNotificationResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceNotifyDidReceiveResponseResult {
+  case success(HiveAxylPushAddonApns.APNSServiceNotifyDidReceiveResponseResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ApnsServiceNotifyColdStartNotificationResult {
+  case success(HiveAxylPushAddonApns.APNSServiceNotifyColdStartNotificationResponse)
+  case unknown(code: Swift.String, rawJson: Swift.String)
+  case failure(problem: HiveAxylCore.HiveError)
+}
+public enum ProviderEnvironment : Swift.Int, Swift.Codable {
+  case unspecified
+  case apns
+  case apnsSandbox
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum UNAuthorizationOption : Swift.Int, Swift.Codable {
+  case unspecified
+  case badge
+  case sound
+  case alert
+  case carPlay
+  case criticalAlert
+  case providesAppNotificationSettings
+  case provisional
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum UNAuthorizationStatus : Swift.Int, Swift.Codable {
+  case unspecified
+  case notDetermined
+  case denied
+  case authorized
+  case provisional
+  case ephemeral
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum UNNotificationInterruptionLevel : Swift.Int, Swift.Codable {
+  case unspecified
+  case passive
+  case active
+  case timeSensitive
+  case critical
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum UNNotificationPresentationOption : Swift.Int, Swift.Codable {
+  case unspecified
+  case badge
+  case sound
+  case list
+  case banner
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class ApnsServicePlugin : ObjectiveC.NSObject, HiveAxylCore.AxylPlugin, @unchecked Swift.Sendable {
+  @objc public static let pluginName: Swift.String
+  public init(adapter: any HiveAxylPushAddonApns.ApnsServiceNativeAdapter, queue: Dispatch.DispatchQueue = DispatchQueue(
+            label: "com.com2usplatform.hiveaxyl.apns_service.plugin",
+            qos: .userInitiated
+        ))
+  @objc public static func register()
+  public static func register(adapter: any HiveAxylPushAddonApns.ApnsServiceNativeAdapter)
+  @objc final public func callSync(method: Swift.String, payload: Swift.String) -> Swift.String
+  @objc final public func callAsync(method: Swift.String, payload: Swift.String, onComplete: @escaping @Sendable @convention(block) (Swift.String) -> Swift.Void)
+  @objc final public func cancel(callbackId: Swift.Int)
+  @objc deinit
+}
+@_cdecl("Hive_Axyl_ApnsService_Register")
+public func Hive_Axyl_ApnsService_Register()
+extension HiveAxylPushAddonApns.ProviderEnvironment : Swift.Equatable {}
+extension HiveAxylPushAddonApns.ProviderEnvironment : Swift.Hashable {}
+extension HiveAxylPushAddonApns.ProviderEnvironment : Swift.RawRepresentable {}
+extension HiveAxylPushAddonApns.UNAuthorizationOption : Swift.Equatable {}
+extension HiveAxylPushAddonApns.UNAuthorizationOption : Swift.Hashable {}
+extension HiveAxylPushAddonApns.UNAuthorizationOption : Swift.RawRepresentable {}
+extension HiveAxylPushAddonApns.UNAuthorizationStatus : Swift.Equatable {}
+extension HiveAxylPushAddonApns.UNAuthorizationStatus : Swift.Hashable {}
+extension HiveAxylPushAddonApns.UNAuthorizationStatus : Swift.RawRepresentable {}
+extension HiveAxylPushAddonApns.UNNotificationInterruptionLevel : Swift.Equatable {}
+extension HiveAxylPushAddonApns.UNNotificationInterruptionLevel : Swift.Hashable {}
+extension HiveAxylPushAddonApns.UNNotificationInterruptionLevel : Swift.RawRepresentable {}
+extension HiveAxylPushAddonApns.UNNotificationPresentationOption : Swift.Equatable {}
+extension HiveAxylPushAddonApns.UNNotificationPresentationOption : Swift.Hashable {}
+extension HiveAxylPushAddonApns.UNNotificationPresentationOption : Swift.RawRepresentable {}

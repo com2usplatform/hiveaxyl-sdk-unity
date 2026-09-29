@@ -1,0 +1,4 @@
+framework module HiveAxylStorage {
+  header "HiveAxylStorage-Swift.h"
+  requires objc
+}
