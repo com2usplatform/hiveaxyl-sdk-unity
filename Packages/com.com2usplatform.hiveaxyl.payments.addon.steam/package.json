@@ -1,6 +1,6 @@
 {
   "name": "com.com2usplatform.hiveaxyl.payments.addon.steam",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "displayName": "Hive Axyl Payments Addon - Steam",
   "description": "Steam Microtransactions addon for Hive Axyl SDK. Wraps the Steamworks SDK MicroTxnAuthorizationResponse_t callback so the App receives raw Steam payment-authorization responses on Windows and macOS.",
@@ -11,7 +11,7 @@
   "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments.addon.steam/CHANGELOG.md",
   "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments.addon.steam/LICENSE.md",
   "dependencies": {
-    "com.com2usplatform.hiveaxyl.core": "1.0.0",
-    "com.com2usplatform.hiveaxyl.steamworks": "1.0.0"
+    "com.com2usplatform.hiveaxyl.core": "1.0.1",
+    "com.com2usplatform.hiveaxyl.steamworks": "1.0.1"
   }
 }

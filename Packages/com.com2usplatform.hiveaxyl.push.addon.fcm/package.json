@@ -1,6 +1,6 @@
 {
   "name": "com.com2usplatform.hiveaxyl.push.addon.fcm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "displayName": "Hive Axyl Push Addon - FCM",
   "description": "Android Firebase Cloud Messaging addon (raw device-token + remote-message surface) for Hive Axyl Push.",
@@ -11,7 +11,7 @@
   "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.push.addon.fcm/CHANGELOG.md",
   "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.push.addon.fcm/LICENSE.md",
   "dependencies": {
-    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.com2usplatform.hiveaxyl.core": "1.0.1",
     "com.unity.modules.androidjni": "1.0.0"
   }
 }
