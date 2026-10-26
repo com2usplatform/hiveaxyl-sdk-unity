@@ -1,6 +1,6 @@
 {
   "name": "com.com2usplatform.hiveaxyl.storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "displayName": "Hive Axyl Storage",
   "description": "Secure storage module (ISecureStorage) for Hive Axyl SDK. Encrypted string persistence over each platform's secure store on iOS, macOS, Android, and Windows.",
@@ -11,7 +11,7 @@
   "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.storage/CHANGELOG.md",
   "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.storage/LICENSE.md",
   "dependencies": {
-    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.com2usplatform.hiveaxyl.core": "1.0.1",
     "com.unity.modules.androidjni": "1.0.0"
   }
 }

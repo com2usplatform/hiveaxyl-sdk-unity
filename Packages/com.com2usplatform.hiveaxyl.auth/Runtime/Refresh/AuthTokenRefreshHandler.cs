@@ -64,7 +64,13 @@ namespace Hive.Axyl.Auth
             TokenIssueTokenResult result;
             try
             {
+#if UNITY_WEBGL
+                // Resume on the caller's context (required on single-threaded WebGL;
+                // ConfigureAwait(false) here queues to a ThreadPool that never runs).
+                result = await m_tokenService.IssueTokenAsync(request, context);
+#else
                 result = await m_tokenService.IssueTokenAsync(request, context).ConfigureAwait(false);
+#endif
             }
             catch (OperationCanceledException)
             {

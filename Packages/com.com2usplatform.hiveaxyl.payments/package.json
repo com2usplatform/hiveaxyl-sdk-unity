@@ -1,6 +1,6 @@
 {
   "name": "com.com2usplatform.hiveaxyl.payments",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "displayName": "Hive Axyl Payments",
   "description": "Payments Capability for Hive Axyl SDK.",
@@ -19,6 +19,6 @@
   "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments/CHANGELOG.md",
   "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments/LICENSE.md",
   "dependencies": {
-    "com.com2usplatform.hiveaxyl.core": "1.0.0"
+    "com.com2usplatform.hiveaxyl.core": "1.0.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "com.com2usplatform.hiveaxyl.steamworks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "displayName": "Hive Axyl Steamworks",
   "description": "Steamworks SDK infrastructure module for Hive Axyl SDK. Wraps the Steamworks.NET managed binding, whose package also carries the Steamworks native libraries, as the single entry point for all Steamworks-dependent packages.",

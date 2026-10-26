@@ -1,6 +1,6 @@
 {
   "name": "com.com2usplatform.hiveaxyl.auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "displayName": "Hive Axyl Auth",
   "description": "Auth and Token clients (IAuthService / ITokenService) for Hive Axyl SDK.",
@@ -11,6 +11,6 @@
   "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth/CHANGELOG.md",
   "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.auth/LICENSE.md",
   "dependencies": {
-    "com.com2usplatform.hiveaxyl.core": "1.0.0"
+    "com.com2usplatform.hiveaxyl.core": "1.0.1"
   }
 }

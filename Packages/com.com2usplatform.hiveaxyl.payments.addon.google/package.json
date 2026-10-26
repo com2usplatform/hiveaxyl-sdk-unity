@@ -1,6 +1,6 @@
 {
   "name": "com.com2usplatform.hiveaxyl.payments.addon.google",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "displayName": "Hive Axyl Payments Addon - Google Play Billing",
   "description": "Android Google Play Billing addon (raw Billing Library 9 BillingClient surface: product query, purchase flow, query purchases, acknowledge/consume) for Hive Axyl Payments.",
@@ -11,7 +11,7 @@
   "changelogUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments.addon.google/CHANGELOG.md",
   "licensesUrl": "https://github.com/com2usplatform/hiveaxyl-sdk-unity/blob/main/Packages/com.com2usplatform.hiveaxyl.payments.addon.google/LICENSE.md",
   "dependencies": {
-    "com.com2usplatform.hiveaxyl.core": "1.0.0",
+    "com.com2usplatform.hiveaxyl.core": "1.0.1",
     "com.unity.modules.androidjni": "1.0.0"
   }
 }

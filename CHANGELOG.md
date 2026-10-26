@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-10-26
+
+### Fixed
+
+#### Auth
+
+- WebGL: automatic token refresh after a 401 no longer hangs; the refreshed tokens are applied and the original request is replayed and completed.
+
 ## [1.0.0] - 2026-09-29
 
 First release of the Hive Axyl SDK for Unity — a modular UPM package set for the Hive Axyl platform, covering Android (API 29+), iOS (17+), macOS (15+), Windows (11 64-bit+), and WebGL (WebGL 2.0) — support varies per package.
